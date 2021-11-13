@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { GET_PEOPLE_BY_NAME_PAGE } from '../../../graphql/graphql-queries/graphql.queries';
+import { GET_PEOPLE_BY_NAME_PAGE } from '../../../graphql/graphql-queries/graphql-queries';
 
 const Pagination = () => {
   // const [page, setPage] = useState('');

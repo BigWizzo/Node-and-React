@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLazyQuery } from '@apollo/client';
-import { GET_PEOPLE_BY_PAGE } from '../../../graphql/graphql-queries/graphql.queries';
+import { GET_PEOPLE_BY_PAGE } from '../../../graphql/graphql-queries/graphql-queries';
 
 const Pagination = (props: any) => {
   const [getPeople, { data, error, loading }] = useLazyQuery(

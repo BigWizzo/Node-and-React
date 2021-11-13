@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { GET_PEOPLE_BY_NAME } from '../../graphql/graphql-queries/graphql.queries';
+import { GET_PEOPLE_BY_NAME } from '../../graphql/graphql-queries/graphql-queries';
 
 const Form = () => {
   const [search, setSearch] = useState('');

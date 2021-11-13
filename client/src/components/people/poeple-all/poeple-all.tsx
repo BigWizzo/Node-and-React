@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PEOPLE } from '../../../graphql/graphql-queries/graphql.queries';
+import { GET_ALL_PEOPLE } from '../../../graphql/graphql-queries/graphql-queries';
 import SearchForm from '../../form/SearchForm';
 import PeoplePagination from '../../pages/pages-id/pages-id';
 import NamePagination from '../../pages/pages-name-id/PageNameAndId';
