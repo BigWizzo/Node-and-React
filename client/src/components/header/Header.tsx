@@ -24,9 +24,6 @@ const Form = () => {
           setSearch(event.target.value);
         }}
       />
-      <p>Why not show</p>
-      <NavLink to="/search">Search</NavLink>
-      <p>Why not show</p>
       <button onClick={() => getPerson()}>Submit</button>
     </div>
   );
