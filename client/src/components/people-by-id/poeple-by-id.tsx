@@ -14,7 +14,7 @@ const ByPageId: React.FC<{}> = () => {
   const [getPeople, { data, error, loading }] = useLazyQuery<
     GetAllPeoplePage,
     GetAllPeoplePageVariables
-  >(GET_PEOPLE_BY_PAGE, { variables: { id: parseInt(page.pageId) } });
+  >(GET_PEOPLE_BY_PAGE, { variables: { page: parseInt(page.pageId) } });
 
   useEffect(() => {
     getPeople();

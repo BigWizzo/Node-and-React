@@ -6,7 +6,7 @@ const PeopleByNameId = () => {
   // const [page, setPage] = useState('');
   const [getPeople, { data, error, loading }] = useLazyQuery(
     GET_PEOPLE_BY_NAME_PAGE,
-    { variables: { name: 'ana', id: 1 } }
+    { variables: { name: 'ana', page: 1 } }
   );
 
   return (

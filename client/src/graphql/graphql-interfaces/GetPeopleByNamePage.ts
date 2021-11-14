@@ -36,5 +36,5 @@ export interface GetPeopleByNamePage {
 
 export interface GetPeopleByNamePageVariables {
   name: string;
-  id: number;
+  page: number;
 }

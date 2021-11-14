@@ -34,7 +34,7 @@
             "description": null,
             "args": [
               {
-                "name": "id",
+                "name": "page",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
@@ -116,7 +116,7 @@
                 "deprecationReason": null
               },
               {
-                "name": "id",
+                "name": "page",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",

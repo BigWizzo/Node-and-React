@@ -35,5 +35,5 @@ export interface GetAllPeoplePage {
 }
 
 export interface GetAllPeoplePageVariables {
-  id: number;
+  page: number;
 }

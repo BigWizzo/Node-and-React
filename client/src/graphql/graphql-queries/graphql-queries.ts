@@ -36,8 +36,8 @@ export const GET_ALL_PEOPLE = gql`
 `;
 
 export const GET_PEOPLE_BY_PAGE = gql`
-  query GetAllPeoplePage($id: Int!) {
-    getAllPeoplePage(id: $id) {
+  query GetAllPeoplePage($page: Int!) {
+    getAllPeoplePage(page: $page) {
       previous
       next
       results {
@@ -72,8 +72,8 @@ export const GET_PEOPLE_BY_NAME = gql`
 `;
 
 export const GET_PEOPLE_BY_NAME_PAGE = gql`
-  query GetPeopleByNamePage($name: String!, $id: Int!) {
-    getPeopleByNamePage(name: $name, id: $id) {
+  query GetPeopleByNamePage($name: String!, $page: Int!) {
+    getPeopleByNamePage(name: $name, page: $page) {
       previous
       next
       results {
