@@ -8,7 +8,9 @@ const requests = {
   },
 
   getPeopleByName: async (_, { name }) => {
-    return axios.get(baseURL + `?search=${name}`).then((res) => res.data);
+    return axios
+      .get(baseURL + `?search=${name}`)
+      .then((res) => console.log(res.data));
   },
   getPersonById: async (_, { id }) => {
     return axios.get(baseURL + `${id}`).then((res) => res.data);
