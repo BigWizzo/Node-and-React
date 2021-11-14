@@ -18,7 +18,7 @@ const Homepage: React.FC = (props: Props) => {
     <div>
       <h1>Home Page</h1>
       {!name && !id && !page && <AllPeople />}
-      <PeopleByNameId />
+      {name && id && !page && <PeopleByNameId />}
     </div>
   );
 };

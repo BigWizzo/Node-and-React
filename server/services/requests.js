@@ -14,13 +14,13 @@ const requests = {
     return axios.get(baseURL + `${id}`).then((res) => res.data);
   },
 
-  getAllPeoplePage: async (_, { id }) => {
-    return axios.get(baseURL + `?page=${id}`).then((res) => res.data);
+  getAllPeoplePage: async (_, { page }) => {
+    return axios.get(baseURL + `?page=${page}`).then((res) => res.data);
   },
 
-  getPeopleByNamePage: async (_, { name, id }) => {
+  getPeopleByNamePage: async (_, { name, page }) => {
     return axios
-      .get(baseURL + `?search=${name}&page=${id}`)
+      .get(baseURL + `?search=${name}&page=${page}`)
       .then((res) => res.data);
   },
 
