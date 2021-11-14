@@ -15,7 +15,7 @@ const AllPeople: React.FC = (props) => {
         return <h1> {val.name}</h1>;
       })}
       {console.log(data)}
-      <Link to="/?page=2">Next</Link>
+      <Link to="people/?page=2">Next</Link>
     </div>
   );
 };

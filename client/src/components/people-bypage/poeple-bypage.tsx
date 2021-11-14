@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import { useLazyQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { GET_PEOPLE_BY_PAGE } from '../../graphql/graphql-queries/graphql-queries';
 import {
   GetAllPeoplePage,
@@ -20,20 +20,18 @@ const PeopleByPage: React.FC = () => {
 
   let pageId: string = page as string;
 
-  const [getPeople, { data, error, loading }] = useLazyQuery<
+  const { data, error, loading } = useQuery<
     GetAllPeoplePage,
     GetAllPeoplePageVariables
   >(GET_PEOPLE_BY_PAGE, { variables: { page: parseInt(pageId) } });
 
-  useEffect(() => {
-    getPeople();
-  }, []);
+  console.log(data);
 
   return (
     <div>
       <div>Page Page</div>
-      <Link to={`/?page=${previous(pageId)}`}>Previous</Link>
-      <Link to={`/?page=${next(pageId)}`}>Next</Link>
+      <Link to={`/people/?page=${previous(pageId)}`}>Previous</Link>
+      <Link to={`/people/?page=${next(pageId)}`}>Next</Link>
     </div>
   );
 };

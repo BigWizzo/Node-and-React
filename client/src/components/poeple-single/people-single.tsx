@@ -10,10 +10,8 @@ const SinglePerson = () => {
     variables: { id: parseInt(personId) },
   });
 
-  // if (error) {
-  // console.log(error);
-  // }
-  //
+  console.log(personId);
+
   if (data) {
     console.log(data);
   }
