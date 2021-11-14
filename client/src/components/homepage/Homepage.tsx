@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import AllPeople from '../poeple-all/poeple-all';
-import PeopleByNameId from '../people-by-name-id/poeple-by-name-id';
+import PeopleByNameId from '../people-byname-page/poeple-byname-page';
+import PeopleByPage from '../people-bypage/poeple-bypage';
 
 interface Props {}
 
@@ -12,13 +13,14 @@ const Homepage: React.FC = (props: Props) => {
   const id = search.get('id');
   const page = search.get('page');
 
-  console.log(name, id, page);
+  console.log(page, 'from home');
 
   return (
     <div>
       <h1>Home Page</h1>
       {!name && !id && !page && <AllPeople />}
       {name && id && !page && <PeopleByNameId />}
+      {!name && !id && page && <PeopleByPage />}
     </div>
   );
 };
