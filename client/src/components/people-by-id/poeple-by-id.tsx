@@ -9,22 +9,27 @@ import {
 import { pageId } from '../../interfaces/interfaces';
 
 const ByPageId: React.FC<{}> = () => {
-  const personId = useParams<pageId>();
+  const page = useParams<pageId>();
 
   const [getPeople, { data, error, loading }] = useLazyQuery<
     GetAllPeoplePage,
     GetAllPeoplePageVariables
-  >(GET_PEOPLE_BY_PAGE, { variables: { id: parseInt(personId.pageId) } });
+  >(GET_PEOPLE_BY_PAGE, { variables: { id: parseInt(page.pageId) } });
 
   useEffect(() => {
     getPeople();
   }, []);
+
+  const previous: number = parseInt(page.pageId) - 1;
+  const next: number = parseInt(page.pageId) + 1;
 
   console.log(data);
 
   return (
     <div>
       <div>Page Page</div>
+      <Link to={`/page/${previous}`}>Previous</Link>
+      <Link to={`/page/${next}`}>Next</Link>
     </div>
   );
 };
