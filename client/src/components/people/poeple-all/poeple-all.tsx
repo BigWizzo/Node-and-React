@@ -1,25 +1,27 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_PEOPLE } from '../../../graphql/graphql-queries/graphql-queries';
-import SearchForm from '../../form/SearchForm';
+import Header from '../../header/Header';
 import PeoplePagination from '../../pages/pages-id/pages-id';
-import NamePagination from '../../pages/pages-name-id/PageNameAndId';
+import { Query } from '../../../graphql/graphql-interfaces/Query';
+import { Link, useParams, useLocation } from 'react-router-dom';
+// import IRoute from '../../../config/routes-interfaces/routes';
 
-function AllPeople() {
-  const { error, loading, data } = useQuery(GET_ALL_PEOPLE);
+const AllPeople: React.FC = (props) => {
+  const { error, loading, data } = useQuery<Query>(GET_ALL_PEOPLE);
 
-  console.log('data', data);
+  let location = useLocation();
+  console.log(location);
   return (
     <div>
-      <SearchForm />
-      {/* {data?.getAllPeople.results.map((val) => { 
-        return <h1> {val.name}</h1>;
+      <Header />
+      {data?.getAllPeople.results.map((val) => {
+        // return <h1> {val.name}</h1>;
       })}
-     */}
+      {/* <Link to={IRoute.people}> */}
       <PeoplePagination />
-      <NamePagination />
     </div>
   );
-}
+};
 
 export default AllPeople;
