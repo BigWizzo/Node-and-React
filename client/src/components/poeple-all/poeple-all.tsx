@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PEOPLE } from '../../../graphql/graphql-queries/graphql-queries';
+import { GET_ALL_PEOPLE } from '../../graphql/graphql-queries/graphql-queries';
 // import PeoplePagination from '../../pages/pages-id/pages-id';
-import { Query } from '../../../graphql/graphql-interfaces/Query';
+import { Query } from '../../graphql/graphql-interfaces/Query';
 import { Link, useParams, useLocation } from 'react-router-dom';
 // import IRoute from '../../../config/routes-interfaces/routes';
 

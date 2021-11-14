@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_PERSON_BY_ID } from '../../../graphql/graphql-queries/graphql-queries';
+import { GET_PERSON_BY_ID } from '../../graphql/graphql-queries/graphql-queries';
 
 const SinglePerson = () => {
   // const [search, setSearch] = useState('');
