@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import AllPeople from '../poeple-all/poeple-all';
 import PeopleByNameId from '../people-byname-page/poeple-byname-page';
 import PeopleByPage from '../people-bypage/poeple-bypage';
+import PeopleByNamePage from '../people-byname-page/poeple-byname-page';
 
 interface Props {}
 
@@ -21,6 +22,7 @@ const Homepage: React.FC = (props: Props) => {
       {!name && !id && !page && <AllPeople />}
       {name && id && !page && <PeopleByNameId />}
       {!name && !id && page && <PeopleByPage />}
+      {<PeopleByNamePage />}
     </div>
   );
 };

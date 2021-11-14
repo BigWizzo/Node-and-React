@@ -6,8 +6,9 @@ import {
   GetAllPeoplePage,
   GetAllPeoplePageVariables,
 } from '../../graphql/graphql-interfaces/GetAllPeoplePage';
+import { next, previous } from '../../utils/utils';
 
-const PeopleByPage: React.FC<{}> = () => {
+const PeopleByPage: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
   const search = new URLSearchParams(location.search);
@@ -28,14 +29,11 @@ const PeopleByPage: React.FC<{}> = () => {
     getPeople();
   }, []);
 
-  const previous: number = parseInt(pageId) - 1;
-  const next: number = parseInt(pageId) + 1;
-
   return (
     <div>
       <div>Page Page</div>
-      <Link to={`/?page=${previous}`}>Previous</Link>
-      <Link to={`/?page=${next}`}>Next</Link>
+      <Link to={`/?page=${previous(pageId)}`}>Previous</Link>
+      <Link to={`/?page=${next(pageId)}`}>Next</Link>
     </div>
   );
 };
