@@ -2,23 +2,40 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_PEOPLE } from '../../graphql/graphql-queries/graphql-queries';
 import { Query } from '../../graphql/graphql-interfaces/Query';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { Container, Grid, Box, ButtonGroup, Button } from '@mui/material';
 import PeopleItem from '../people-item/people-item';
-import { Container, Grid } from '@mui/material';
+import { PageHeading } from '../../styles/people-styles';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const AllPeople: React.FC = (props) => {
+  const history = useHistory();
   const { error, loading, data } = useQuery<Query>(GET_ALL_PEOPLE);
 
   console.log(data);
 
   return (
     <Container maxWidth="md">
+      <PageHeading variant="h4">Home Page</PageHeading>
       <Grid container spacing={2}>
         {data?.getAllPeople.results.map((person) => (
           <PeopleItem person={person} key={person.name} />
         ))}
       </Grid>
-      <Link to="people/?page=2">Next</Link>
+      <Box sx={{ margin: '20px auto' }}>
+        <ButtonGroup variant="outlined" size="large" fullWidth>
+          <Button disabled startIcon={<ArrowBackIosIcon />}>
+            Previous
+          </Button>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={() => history.push(`people/?page=2`)}
+          >
+            Next
+          </Button>
+        </ButtonGroup>
+      </Box>
     </Container>
   );
 };
