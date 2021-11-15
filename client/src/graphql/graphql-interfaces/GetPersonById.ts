@@ -20,6 +20,7 @@ export interface GetPersonById_getPersonById {
   height: string;
   mass: string;
   gender: string;
+  url: string;
   homeworld: GetPersonById_getPersonById_homeworld;
 }
 

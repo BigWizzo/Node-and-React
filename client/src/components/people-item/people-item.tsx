@@ -5,21 +5,14 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
+import { Link } from '@mui/material';
 
 interface Person {
   name: string;
   gender: string;
   mass: string;
   height: string;
+  url: string;
   homeworld: {
     name: string;
   };
@@ -40,6 +33,7 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
         <div>{person?.homeworld?.name}</div>
       </div>
       <Box>
+        {/* <Link to="/"> */}
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -59,6 +53,7 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
             <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
+        {/* </Link> */}
       </Box>
     </div>
   );

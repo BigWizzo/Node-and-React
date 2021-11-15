@@ -20,6 +20,7 @@ export interface GetPeopleByName_getPeopleByName_results {
   height: string;
   mass: string;
   gender: string;
+  url: string;
   homeworld: GetPeopleByName_getPeopleByName_results_homeworld;
 }
 

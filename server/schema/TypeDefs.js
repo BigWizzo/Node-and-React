@@ -21,6 +21,7 @@ const typeDefs = gql`
     mass: String!
     gender: String!
     homeworld: Planet!
+    url: String!
   }
 
   type Planet {

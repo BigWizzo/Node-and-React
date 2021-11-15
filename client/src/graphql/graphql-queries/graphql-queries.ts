@@ -5,6 +5,7 @@ const person = `{
       height
       mass
       gender
+      url
       homeworld {
         name
       }
@@ -27,6 +28,7 @@ export const GET_ALL_PEOPLE = gql`
         height
         mass
         gender
+        url
         homeworld {
           name
         }
@@ -45,6 +47,7 @@ export const GET_PEOPLE_BY_PAGE = gql`
         height
         mass
         gender
+        url
         homeworld {
           name
         }
@@ -63,6 +66,7 @@ export const GET_PEOPLE_BY_NAME = gql`
         height
         mass
         gender
+        url
         homeworld {
           name
         }
@@ -81,6 +85,7 @@ export const GET_PEOPLE_BY_NAME_PAGE = gql`
         height
         mass
         gender
+        url
         homeworld {
           name
         }
@@ -96,6 +101,7 @@ export const GET_PERSON_BY_ID = gql`
       height
       mass
       gender
+      url
       homeworld {
         name
       }

@@ -20,6 +20,7 @@ export interface GetAllPeoplePage_getAllPeoplePage_results {
   height: string;
   mass: string;
   gender: string;
+  url: string;
   homeworld: GetAllPeoplePage_getAllPeoplePage_results_homeworld;
 }
 
