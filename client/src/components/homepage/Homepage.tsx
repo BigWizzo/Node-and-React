@@ -26,6 +26,8 @@ const Homepage: React.FC = () => {
     variables: { name: searchName },
   });
 
+  console.log(data);
+
   return (
     <div>
       <h1>Home Page</h1>
