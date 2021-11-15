@@ -3,10 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Homepage from './components/homepage/Homepage';
 import SinglePerson from './components/poeple-single/people-single';
 
-const App: React.FC<{}> = (props) => {
+const App: React.FC = () => {
   return (
     <div>
-      <h1>App Page</h1>
       <Switch>
         <Route path="/" exact>
           <Homepage />

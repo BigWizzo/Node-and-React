@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_PEOPLE } from '../../graphql/graphql-queries/graphql-queries';
 import { Query } from '../../graphql/graphql-interfaces/Query';
 import { Link } from 'react-router-dom';
-import AllPeopleItem from '../people-item/people-item';
+import PeopleItem from '../people-item/people-item';
 import { Container, Grid } from '@mui/material';
 
 const AllPeople: React.FC = (props) => {
@@ -15,7 +15,7 @@ const AllPeople: React.FC = (props) => {
     <Container maxWidth="md">
       <Grid container spacing={2}>
         {data?.getAllPeople.results.map((person) => (
-          <AllPeopleItem person={person} key={person.name} />
+          <PeopleItem person={person} key={person.name} />
         ))}
       </Grid>
       <Link to="people/?page=2">Next</Link>

@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { CardContent, Grid } from '@mui/material';
+import { CardContent, Grid, Typography } from '@mui/material';
 
 export const MainColor = styled(Grid)`
   color: #222130;
+`;
+
+export const PageHeading = styled(Typography)`
+  text-align: center;
+  margin: 20px auto;
 `;
 
 export const GridDisplayFlex = styled(Grid)`

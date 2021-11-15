@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_PERSON_BY_ID } from '../../graphql/graphql-queries/graphql-queries';
-import { Card, Grid, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, Grid, CardMedia, Typography } from '@mui/material';
 import {
   GridDisplayFlex,
   PersonDetails,
@@ -12,7 +12,6 @@ import {
 import image from '../../images/img7.jpg';
 
 const SinglePerson = () => {
-  // const [search, setSearch] = useState('');
   const { personId } = useParams() as any;
   const { loading, error, data } = useQuery(GET_PERSON_BY_ID, {
     variables: { id: parseInt(personId) },

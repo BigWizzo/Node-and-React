@@ -29,7 +29,7 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
 
   return (
     <Grid item xs={12} sm={6} lg={4}>
-      <CustomRouterLink to={`people/${urlId}`}>
+      <CustomRouterLink to={`/people/${urlId}`}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" color="#00ff00" component="div">

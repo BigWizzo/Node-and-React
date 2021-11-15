@@ -7,12 +7,11 @@ import {
   GetAllPeoplePageVariables,
 } from '../../graphql/graphql-interfaces/GetAllPeoplePage';
 import { next, previous } from '../../utils/utils';
-import { FlexSpaceBetween } from '../../styles/people-styles';
-import { Box, ButtonGroup, Card, Grid, Button } from '@mui/material';
+import PeopleItem from '../people-item/people-item';
+import { PageHeading } from '../../styles/people-styles';
+import { Box, ButtonGroup, Container, Grid, Button } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 
 const PeopleByPage: React.FC = () => {
   const history = useHistory();
@@ -34,8 +33,13 @@ const PeopleByPage: React.FC = () => {
   console.log(data);
 
   return (
-    <div>
-      <div>Page Page</div>
+    <Container maxWidth="md">
+      <PageHeading variant="h4">List by Page</PageHeading>
+      <Grid container spacing={2}>
+        {data?.getAllPeoplePage?.results.map((person) => (
+          <PeopleItem person={person} key={person.name} />
+        ))}
+      </Grid>
       <Box sx={{ margin: '20px auto' }}>
         <ButtonGroup variant="outlined" size="large" fullWidth>
           <Button
@@ -52,7 +56,7 @@ const PeopleByPage: React.FC = () => {
           </Button>
         </ButtonGroup>
       </Box>
-    </div>
+    </Container>
   );
 };
 
