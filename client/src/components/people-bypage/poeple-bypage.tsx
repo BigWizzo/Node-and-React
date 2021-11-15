@@ -7,6 +7,12 @@ import {
   GetAllPeoplePageVariables,
 } from '../../graphql/graphql-interfaces/GetAllPeoplePage';
 import { next, previous } from '../../utils/utils';
+import { FlexSpaceBetween } from '../../styles/people-styles';
+import { Box, ButtonGroup, Card, Grid, Button } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 const PeopleByPage: React.FC = () => {
   const history = useHistory();
@@ -30,8 +36,22 @@ const PeopleByPage: React.FC = () => {
   return (
     <div>
       <div>Page Page</div>
-      <Link to={`/people/?page=${previous(pageId)}`}>Previous</Link>
-      <Link to={`/people/?page=${next(pageId)}`}>Next</Link>
+      <Box sx={{ margin: '20px auto' }}>
+        <ButtonGroup variant="outlined" size="large" fullWidth>
+          <Button
+            startIcon={<ArrowBackIosIcon />}
+            onClick={() => history.push(`/people/?page=${previous(pageId)}`)}
+          >
+            Previous
+          </Button>
+          <Button
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={() => history.push(`/people/?page=${next(pageId)}`)}
+          >
+            Next
+          </Button>
+        </ButtonGroup>
+      </Box>
     </div>
   );
 };

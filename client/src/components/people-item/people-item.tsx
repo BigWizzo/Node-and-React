@@ -5,7 +5,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { CustomRouterLink } from '../../styles/people-styles';
+import { Grid } from '@mui/material';
 
 interface Person {
   name: string;
@@ -23,24 +25,15 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
 }: {
   person: Person;
 }) => {
+  const urlId = person.url.substr(person.url.length - 2);
+
   return (
-    <div>
-      <div>
-        <div>{person?.name}</div>
-        <div>{person?.gender}</div>
-        <div>{person?.mass}</div>
-        <div>{person?.height}</div>
-        <div>{person?.homeworld?.name}</div>
-      </div>
-      <Box>
-        {/* <Link to="/"> */}
+    <Grid item xs={12} sm={6} lg={4}>
+      <CustomRouterLink to={`people/${urlId}`}>
         <Card variant="outlined">
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography variant="h5" color="#00ff00" component="div">
               {person?.name}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
             </Typography>
             <Typography variant="body2">Gender: {person?.gender}</Typography>
             <Typography variant="body2">mass: {person?.mass}</Typography>
@@ -49,13 +42,9 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
               HomeWorld: {person?.homeworld?.name}
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
         </Card>
-        {/* </Link> */}
-      </Box>
-    </div>
+      </CustomRouterLink>
+    </Grid>
   );
 };
 

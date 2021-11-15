@@ -4,6 +4,7 @@ import { GET_ALL_PEOPLE } from '../../graphql/graphql-queries/graphql-queries';
 import { Query } from '../../graphql/graphql-interfaces/Query';
 import { Link } from 'react-router-dom';
 import AllPeopleItem from '../people-item/people-item';
+import { Container, Grid } from '@mui/material';
 
 const AllPeople: React.FC = (props) => {
   const { error, loading, data } = useQuery<Query>(GET_ALL_PEOPLE);
@@ -11,14 +12,14 @@ const AllPeople: React.FC = (props) => {
   console.log(data);
 
   return (
-    <div>
-      {data?.getAllPeople.results.map((person) => (
-        <div key={person.name}>
-          <AllPeopleItem person={person} />
-        </div>
-      ))}
+    <Container maxWidth="md">
+      <Grid container spacing={2}>
+        {data?.getAllPeople.results.map((person) => (
+          <AllPeopleItem person={person} key={person.name} />
+        ))}
+      </Grid>
       <Link to="people/?page=2">Next</Link>
-    </div>
+    </Container>
   );
 };
 
