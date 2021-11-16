@@ -8,6 +8,7 @@ import PeopleItem from '../people-item/people-item';
 import { PageHeading } from '../../styles/people-styles';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import TopButtons from '../shared/top-buttons';
 
 const AllPeople: React.FC = () => {
   const history = useHistory();
@@ -15,6 +16,7 @@ const AllPeople: React.FC = () => {
 
   return (
     <Container maxWidth="md">
+      <TopButtons />
       <PageHeading variant="h4">Home Page</PageHeading>
       {data && (
         <Grid container spacing={2}>

@@ -12,6 +12,7 @@ import { PageHeading } from '../../styles/people-styles';
 import { Box, ButtonGroup, Container, Grid, Button } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import TopButtons from '../shared/top-buttons';
 
 const PeopleByPage: React.FC = () => {
   const history = useHistory();
@@ -32,6 +33,7 @@ const PeopleByPage: React.FC = () => {
 
   return (
     <Container maxWidth="md">
+      <TopButtons />
       <PageHeading variant="h4">List by Page</PageHeading>
       {data && (
         <Grid container spacing={2}>

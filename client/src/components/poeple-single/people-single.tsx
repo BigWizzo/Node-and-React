@@ -1,21 +1,19 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_PERSON_BY_ID } from '../../graphql/graphql-queries/graphql-queries';
-import { Card, Grid, CardMedia, Typography, Box, Button } from '@mui/material';
+import { Card, Grid, CardMedia, Typography, Box } from '@mui/material';
 import {
   GridDisplayFlex,
   PersonDetails,
   PersonContent,
   ColumnContent,
   PageHeading,
-  GridDisplayFlexStart,
 } from '../../styles/people-styles';
 import image from '../../images/img7.jpg';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import TopButtons from '../shared/top-buttons';
 
 const SinglePerson = () => {
-  const history = useHistory();
   const { personId } = useParams() as any;
   const { loading, error, data } = useQuery(GET_PERSON_BY_ID, {
     variables: { id: parseInt(personId) },
@@ -24,18 +22,8 @@ const SinglePerson = () => {
   const person = data?.getPersonById;
 
   return (
-    <Box sx={{ margin: '65px auto' }}>
-      <GridDisplayFlexStart>
-        <Box sx={{ margin: '0 30px' }}>
-          <Button
-            variant="outlined"
-            startIcon={<ArrowBackIosIcon />}
-            onClick={() => history.goBack()}
-          >
-            Go Back
-          </Button>
-        </Box>
-      </GridDisplayFlexStart>
+    <Box>
+      <TopButtons />
       {data && <PageHeading variant="h4">{person?.name}</PageHeading>}
       <PersonDetails>
         <>

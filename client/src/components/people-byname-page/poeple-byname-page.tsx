@@ -8,10 +8,11 @@ import {
 } from '../../graphql/graphql-interfaces/GetPeopleByNamePage';
 import { next, previous } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
-import { GridDisplayFlexStart, PageHeading } from '../../styles/people-styles';
+import { PageHeading } from '../../styles/people-styles';
 import { Box, ButtonGroup, Container, Grid, Button } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import TopButtons from '../shared/top-buttons';
 
 const PeopleByNamePage: React.FC = () => {
   const history = useHistory();
@@ -35,17 +36,7 @@ const PeopleByNamePage: React.FC = () => {
 
   return (
     <Container maxWidth="md">
-      <GridDisplayFlexStart>
-        <Box sx={{ margin: '0 30px' }}>
-          <Button
-            variant="outlined"
-            startIcon={<ArrowBackIosIcon />}
-            onClick={() => history.push('/')}
-          >
-            Go Home
-          </Button>
-        </Box>
-      </GridDisplayFlexStart>
+      <TopButtons />
       <PageHeading variant="h4">List by Name Page</PageHeading>
       {data && (
         <Grid container spacing={2}>

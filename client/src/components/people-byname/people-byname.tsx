@@ -9,6 +9,8 @@ import {
 } from '../../graphql/graphql-interfaces/GetPeopleByName';
 
 const PeopleByName: React.FC = () => {
+  const [searchName, setSearchName] = useState<string>('');
+
   const history = useHistory();
   const location = useLocation();
   const search = new URLSearchParams(location.search);
@@ -16,12 +18,12 @@ const PeopleByName: React.FC = () => {
 
   let personName: string = name as string;
 
-  const { data, error } = useQuery<GetPeopleByName, GetPeopleByNameVariables>(
-    GET_PEOPLE_BY_NAME,
-    {
-      variables: { name: personName },
-    }
-  );
+  const [getPeopleByName, { data, loading, error }] = useLazyQuery<
+    GetPeopleByName,
+    GetPeopleByNameVariables
+  >(GET_PEOPLE_BY_NAME, {
+    variables: { name: searchName },
+  });
 
   if (data) {
     console.log(data);
@@ -29,6 +31,13 @@ const PeopleByName: React.FC = () => {
   return (
     <div>
       <h1>Search Name</h1>
+      <input
+        type="text"
+        onChange={(event) => {
+          setSearchName(event.target.value);
+        }}
+      />
+      <button onClick={() => getPeopleByName()}>Submit</button>
     </div>
   );
 };
