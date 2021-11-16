@@ -12,7 +12,6 @@ import {
 } from '../../styles/people-styles';
 import image from '../../images/img7.jpg';
 import { FlexSpaceBetween } from '../../styles/people-styles';
-import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 

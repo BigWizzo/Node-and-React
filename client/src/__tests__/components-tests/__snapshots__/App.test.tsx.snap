@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Application 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthMd css-xdmu94-MuiContainer-root"
+>
+  <div
+    className="MuiBox-root css-35fvhm"
+  >
+    <div
+      className="MuiGrid-root sc-dkPtRN eWbiec css-vj1n65-MuiGrid-root"
+    >
+      <button
+        className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="PersonSearchIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              cx="10"
+              cy="8"
+              r="4"
+            />
+            <path
+              d="M10.35 14.01C7.62 13.91 2 15.27 2 18v2h9.54c-2.47-2.76-1.23-5.89-1.19-5.99zm9.08 4.01c.36-.59.57-1.28.57-2.02 0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4c.74 0 1.43-.22 2.02-.57L20.59 22 22 20.59l-2.57-2.57zM16 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"
+            />
+          </svg>
+        </span>
+        Search People
+      </button>
+    </div>
+  </div>
+  <h4
+    className="MuiTypography-root MuiTypography-h4 sc-bdvvtL eViCXW css-5lbw0b-MuiTypography-root"
+  >
+    Home Page
+  </h4>
+  <h4
+    className="MuiTypography-root MuiTypography-h4 sc-bdvvtL eViCXW css-5lbw0b-MuiTypography-root"
+  >
+    Loading...
+  </h4>
+</div>
+`;
