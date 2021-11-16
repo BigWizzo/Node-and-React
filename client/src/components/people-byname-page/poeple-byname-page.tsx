@@ -8,7 +8,7 @@ import {
 } from '../../graphql/graphql-interfaces/GetPeopleByNamePage';
 import { next, previous } from '../../utils/utils';
 import PeopleItem from '../people-item/people-item';
-import { PageHeading } from '../../styles/people-styles';
+import { GridDisplayFlexStart, PageHeading } from '../../styles/people-styles';
 import { Box, ButtonGroup, Container, Grid, Button } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -33,20 +33,29 @@ const PeopleByNamePage: React.FC = () => {
     variables: { name: personName, page: parseInt(pageId) },
   });
 
-  console.log(name, 'personName');
-  console.log(pageId, 'pageId');
-
-  console.log(loading, 'loading');
-
   return (
     <Container maxWidth="md">
+      <GridDisplayFlexStart>
+        <Box sx={{ margin: '0 30px' }}>
+          <Button
+            variant="outlined"
+            startIcon={<ArrowBackIosIcon />}
+            onClick={() => history.push('/')}
+          >
+            Go Home
+          </Button>
+        </Box>
+      </GridDisplayFlexStart>
       <PageHeading variant="h4">List by Name Page</PageHeading>
-      {loading && <p>Loading...</p>}
-      <Grid container spacing={2}>
-        {data?.getPeopleByNamePage?.results.map((person) => (
-          <PeopleItem person={person} key={person.name} />
-        ))}
-      </Grid>
+      {data && (
+        <Grid container spacing={2}>
+          {data?.getPeopleByNamePage?.results.map((person) => (
+            <PeopleItem person={person} key={person.name} />
+          ))}
+        </Grid>
+      )}
+      {loading && <PageHeading variant="h4">Loading...</PageHeading>}
+      {error && <PageHeading variant="h6">Error :(</PageHeading>}
       <Box sx={{ margin: '20px auto' }}>
         <ButtonGroup variant="outlined" size="large" fullWidth>
           <Button

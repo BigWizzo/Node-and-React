@@ -20,6 +20,11 @@ export const GridDisplayFlexEnd = styled(Grid)`
   justify-content: flex-end;
 `;
 
+export const GridDisplayFlexStart = styled(Grid)`
+  display: flex;
+  justify-content: flex-start;
+`;
+
 export const GriDRowAlignCenter = styled(Grid)`
   display: flex;
   align-items: center;

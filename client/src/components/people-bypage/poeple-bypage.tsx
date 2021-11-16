@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_PEOPLE_BY_PAGE } from '../../graphql/graphql-queries/graphql-queries';
 import {
@@ -30,16 +30,18 @@ const PeopleByPage: React.FC = () => {
     GetAllPeoplePageVariables
   >(GET_PEOPLE_BY_PAGE, { variables: { page: parseInt(pageId) } });
 
-  console.log(data);
-
   return (
     <Container maxWidth="md">
       <PageHeading variant="h4">List by Page</PageHeading>
-      <Grid container spacing={2}>
-        {data?.getAllPeoplePage?.results.map((person) => (
-          <PeopleItem person={person} key={person.name} />
-        ))}
-      </Grid>
+      {data && (
+        <Grid container spacing={2}>
+          {data?.getAllPeoplePage?.results.map((person) => (
+            <PeopleItem person={person} key={person.name} />
+          ))}
+        </Grid>
+      )}
+      {loading && <PageHeading variant="h4">Loading...</PageHeading>}
+      {error && <PageHeading variant="h6">Error :(</PageHeading>}
       <Box sx={{ margin: '20px auto' }}>
         <ButtonGroup variant="outlined" size="large" fullWidth>
           <Button
