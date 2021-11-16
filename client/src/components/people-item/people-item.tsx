@@ -21,11 +21,11 @@ const PeopleAllItem: React.FC<{ person: Person }> = ({
 }: {
   person: Person;
 }) => {
-  const urlId = person.url.substr(person.url.length - 2);
+  const url = person.url.substr(22);
 
   return (
     <Grid item xs={12} sm={6} lg={4}>
-      <CustomRouterLink to={`/people/${urlId}`}>
+      <CustomRouterLink to={`/${url}`}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" color="#03035f" component="div">

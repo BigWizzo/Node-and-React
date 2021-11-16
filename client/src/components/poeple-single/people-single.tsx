@@ -1,8 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_PERSON_BY_ID } from '../../graphql/graphql-queries/graphql-queries';
-import { Card, Grid, CardMedia, Typography, Box } from '@mui/material';
+import { Card, Grid, CardMedia, Typography, Box, Button } from '@mui/material';
 import {
   GridDisplayFlex,
   PersonDetails,
@@ -11,9 +11,13 @@ import {
   PageHeading,
 } from '../../styles/people-styles';
 import image from '../../images/img7.jpg';
-import TopButtons from '../shared/top-buttons';
+import { FlexSpaceBetween } from '../../styles/people-styles';
+import HomeIcon from '@mui/icons-material/Home';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 
 const SinglePerson = () => {
+  const history = useHistory();
   const { personId } = useParams() as any;
   const { loading, error, data } = useQuery(GET_PERSON_BY_ID, {
     variables: { id: parseInt(personId) },
@@ -23,7 +27,24 @@ const SinglePerson = () => {
 
   return (
     <Box>
-      <TopButtons />
+      <Box sx={{ margin: '30px' }}>
+        <FlexSpaceBetween>
+          <Button
+            variant="outlined"
+            startIcon={<ArrowBackIosIcon />}
+            onClick={() => history.goBack()}
+          >
+            Go Back
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<PersonSearchIcon />}
+            onClick={() => history.push('/search')}
+          >
+            Search People
+          </Button>
+        </FlexSpaceBetween>
+      </Box>
       {data && <PageHeading variant="h4">{person?.name}</PageHeading>}
       <PersonDetails>
         <>

@@ -21,11 +21,12 @@ const PeopleByNamePage: React.FC = () => {
   const name = search.get('name');
   const page = search.get('page');
 
-  if (page === '1' && name === '') {
-    history.push('/');
-  }
   let personName: string = name as string;
   let pageId: string = page as string;
+
+  if (parseInt(pageId) < 2 && name === '') {
+    history.push('/');
+  }
 
   const { data, error, loading } = useQuery<
     GetPeopleByNamePage,
@@ -37,7 +38,7 @@ const PeopleByNamePage: React.FC = () => {
   return (
     <Container maxWidth="md">
       <TopButtons />
-      <PageHeading variant="h4">List by Name Page</PageHeading>
+      <PageHeading variant="h4">List by Name</PageHeading>
       {data && (
         <Grid container spacing={2}>
           {data?.getPeopleByNamePage?.results.map((person) => (
@@ -47,24 +48,36 @@ const PeopleByNamePage: React.FC = () => {
       )}
       {loading && <PageHeading variant="h4">Loading...</PageHeading>}
       {error && <PageHeading variant="h6">Error :(</PageHeading>}
+      {error && (
+        <Box sx={{ maxWidth: 400, margin: 'auto' }}>
+          <PageHeading variant="h6" align="center">
+            Person not found. Please use the search button to find the person
+            you're looking for
+          </PageHeading>
+        </Box>
+      )}
       <Box sx={{ margin: '20px auto' }}>
         <ButtonGroup variant="outlined" size="large" fullWidth>
-          <Button
-            startIcon={<ArrowBackIosIcon />}
-            onClick={() =>
-              history.push(`/people/?name=${name}&page=${previous(pageId)}`)
-            }
-          >
-            Previous
-          </Button>
-          <Button
-            endIcon={<ArrowForwardIosIcon />}
-            onClick={() =>
-              history.push(`/people/?name=${name}&page=${next(pageId)}`)
-            }
-          >
-            Next
-          </Button>
+          {data?.getPeopleByNamePage?.previous && (
+            <Button
+              startIcon={<ArrowBackIosIcon />}
+              onClick={() =>
+                history.push(`/people/?name=${name}&page=${previous(pageId)}`)
+              }
+            >
+              Previous
+            </Button>
+          )}
+          {data?.getPeopleByNamePage?.next && (
+            <Button
+              endIcon={<ArrowForwardIosIcon />}
+              onClick={() =>
+                history.push(`/people/?name=${name}&page=${next(pageId)}`)
+              }
+            >
+              Next
+            </Button>
+          )}
         </ButtonGroup>
       </Box>
     </Container>

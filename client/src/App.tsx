@@ -6,22 +6,20 @@ import SearchPage from './components/people-byname/people-byname';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Switch>
-        <Route path="/" exact>
-          <Homepage />
-        </Route>
-        <Route path="/people" exact>
-          <Homepage />
-        </Route>
-        <Route path="/search" exact>
-          <SearchPage />
-        </Route>
-        <Route path="/people/:personId" exact>
-          <SinglePerson />
-        </Route>
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" exact>
+        <Homepage />
+      </Route>
+      <Route path="/people" exact>
+        <Homepage />
+      </Route>
+      <Route path="/search" exact>
+        <SearchPage />
+      </Route>
+      <Route path="/people/:personId" exact>
+        <SinglePerson />
+      </Route>
+    </Switch>
   );
 };
 
