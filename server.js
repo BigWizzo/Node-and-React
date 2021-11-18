@@ -1,5 +1,6 @@
 const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
+const cors = require('cors');
 const { typeDefs } = require('./schema/TypeDefs');
 const { resolvers } = require('./schema/Resolvers');
 
@@ -14,10 +15,12 @@ async function startApolloServer(typeDefs, resolvers) {
   const PORT = process.env.PORT || 4000;
   server.applyMiddleware({ app });
 
-  app.use(express.static(path.join(__dirname, '/client/build')));
+  app.use(cors());
+
+  app.use(express.static('public'));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
   });
 
   app.listen({ port: PORT }, () =>
