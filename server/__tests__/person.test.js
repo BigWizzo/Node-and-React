@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-describe('single person resolvers', () => {
+describe('single person resolver', () => {
   it('should return a Person', async () => {
     const response = await axios.post('http://localhost:4000/graphql', {
       query: `
