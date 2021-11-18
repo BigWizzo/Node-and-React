@@ -1,11 +1,11 @@
 # Apollo GraphQL StarWars App
 
-> This SPA has a Home page listing the first page of People queried [https://swapi.dev/api/people/](https://swapi.dev/api/people/).
+> This SPA has a Home page listing the first page of People queried from [https://swapi.dev/api/people/](https://swapi.dev/api/people/).
 > Additionally the app implements pagination allowing for a particular People page to be Queried.
 > When a Person is clicked on, a Detail page outlining the Person's details gets diplayed.
-> The User is able to navigate back to the Home page to the previously active People page from the Detail page.
+> You are able to navigate back to the Home page to the previously active People page from the Detail page.
 
-![ScreenShot](./screenshots.png)
+![ScreenShot](./screenshot.png)
 
 ## Built With
 
