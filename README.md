@@ -5,7 +5,7 @@
 > When a Person is clicked on, a Detail page outlining the Person's details gets diplayed.
 > You are able to navigate back to the Home page to the previously active People page from the Detail page.
 
-![ScreenShot](./Screenshot.png)
+![ScreenShot](./Screenshotanakin.png)
 
 ## Built With
 
