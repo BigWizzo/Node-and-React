@@ -46,7 +46,7 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 - Open the console
-- Download or `git clone https://github.com/BigWizzo/Node-and-React/tree/develop <name-your-app>`
+- Download or `git clone https://github.com/BigWizzo/Node-and-React.git <name-your-app>`
 - run `cd <name-your-app>`
 - run `yarn install`
 - run `yarn clientinstall`
