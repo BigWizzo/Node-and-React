@@ -14,8 +14,6 @@ const AllPeople: React.FC = () => {
   const history = useHistory();
   const { error, loading, data } = useQuery<Query>(GET_ALL_PEOPLE);
 
-  console.log(data?.getAllPeople);
-
   return (
     <Container maxWidth="md">
       <Box sx={{ margin: '30px' }}>
